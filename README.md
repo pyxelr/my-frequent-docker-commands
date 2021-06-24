@@ -1,8 +1,8 @@
 # My frequent Docker commands
 
 ### 📜 **list** containers/images
-* `docker ps -a` <--- show even stopped containers
-* `docker images -a` <--- show even unused images
+* `docker ps -a` <--- show even stopped **containers**
+* `docker images -a` <--- show even unused **images**
 ### ✅ **build/run** an image
 * `docker build -t abc .` <--- build a container in a current directory
     * `docker build -f docker/base/Dockerfile -t abc .` <--- build a Docker image from another path
@@ -20,13 +20,14 @@
 * `[CTRL] + [D]` or `exit` <--- exit and stop the container
 * `[CTRL] + [P] + [Q]` <--- exit without stopping the container
 ### ❌ **delete** containers/images
-* `docker system prune -a` <--- remove stopped containers and unused images
-* `docker stop $(docker ps -a -q)` <--- stop all running containers
+* `docker system prune -a --volumes` <--- remove **all** (stopped containers, unused images, volumes)
+* `docker stop $(docker ps -a -q)` <--- stop all running **containers**
     * `docker stop <container_id>` <--- stop a running container
-* `docker rm $(docker ps -a -q)` <--- remove all stopped containers
+* `docker rm $(docker ps -a -q)` <--- remove all stopped **containers**
     * `docker rm -f <id/name>` <--- remove a container forcefully
-* `docker rmi $(docker images -q)` <--- remove all images
+* `docker rmi $(docker images -q)` <--- remove all **images**
     * `docker rmi -f <image_id>` <--- remove image by its ID forcefully
     * `docker image rm -f <name>` <--- remove image by its name
+* `docker volume rm $(docker volume ls -q)` <--- remove all **volumes**
 ---
 You can find more commands in the official [Docker CLI Reference](https://docs.docker.com/engine/reference/run/).
