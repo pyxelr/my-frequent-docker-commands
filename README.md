@@ -2,7 +2,7 @@
 
 ### 📜 **list** containers/images
 * `docker ps -a` <--- show even stopped containers
-* `docker images -a` <--- show even unused containers
+* `docker images -a` <--- show even unused images
 ### ✅ **build/run** an image
 * `docker build -t abc .` <--- build a container in a current directory
     * `docker build -f docker/base/Dockerfile -t abc .` <--- build a Docker image from another path
