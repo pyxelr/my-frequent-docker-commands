@@ -6,6 +6,7 @@
 ### ✅ **build/run** an image
 * `docker build -t abc .` <--- build a container in a current directory
     * `docker build -f docker/base/Dockerfile -t abc .` <--- build a Docker image from another path
+    * `docker build -f docker/def/Dockerfile --build-arg BASE_IMAGE=abc -t def` <--- pass a build argument
 * `docker run -it abc bash` <--- run Docker image in an interactive bash shell
     * `docker run --name xyz -it abc bash` <--- give it a name
 * `docker exec -it xyz bash` <--- get into a running container (first make sure to `docker start xyz` if stopped)
@@ -14,8 +15,8 @@
     * you'll be able able to access your local folder in the /app folder of the Docker image
     * on Linux replace `%cd` with `$pwd`
 ### 🌐 **publish** a container (e.g. to use REST/curl)
-* `docker run -it --rm -p 8080:8080 abc` <--- expose port 8080 (inside container) to port 8080 (on the host), and automatically remove the container after exiting 
-* `docker run -d -p 8080:8080 abc` <--- run in a detached mode (detach from the container and return to the terminal prompt)
+* `docker run -it --rm -p 8080:80 abc` <--- expose port 8080 (inside container) to port 80 (on the host), and automatically remove the container after exiting 
+* `docker run -d -p 8080:80 abc` <--- run in a detached mode (detach from the container and return to the terminal prompt)
 ### 🚶‍♂ **exit** a container
 * `[CTRL] + [D]` or `exit` <--- exit and stop the container
 * `[CTRL] + [P] + [Q]` <--- exit without stopping the container
