@@ -14,9 +14,9 @@
 * `docker run --name xyz -v $pwd:/app -it abc bash` <--- mount current directory to a container and run it
     * you'll be able able to access your local folder in the /app folder of the Docker image
     * if you're using a different terminal, make sure to replace `$pwd`
-	     * _cmd.exe_: use `%cd%`
-	     * _PowerShell_: use `${pwd}`
-	     * _Git Bash_: use `/$(pwd)`. Also, if you're specifying a working directory, instead of `-w /app` use `-w "//app"`
+	     * _cmd.exe_: use `%cd%`. Also, replace any newline characters `\` with `^`
+	     * _PowerShell_: use `${pwd}`. Also, replace any newline characters `\` with `` ` ``
+	     * _Git Bash_: use `/$(pwd)`. Also, if you are specifying a working directory, instead of `-w /app` use `-w "//app"`
 ### 🌐 **publish** a container (e.g. to use REST/curl)
 * `docker run -it --rm -p 8080:80 abc` <--- expose port 8080 (inside container) to port 80 (on the host), and automatically remove the container after exiting 
 * `docker run -d -p 8080:80 abc` <--- run in a detached mode (detach from the container and return to the terminal prompt)
