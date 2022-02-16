@@ -34,14 +34,14 @@
 ## ⚠ running Docker commands on Windows
 * **cmd.exe**
     * replace `$pwd` with `%cd%`
-    * replace any newline characters `\` with `^`. If you are using `bash -c "…"`, then add `^` and make a newline before the first `"`
+    * replace any newline characters `\` with `^`. If you're using `bash -c "…"`, then add `^` and make a newline before the first `"`
 * **PowerShell**
     * replace `$pwd` with `${pwd}`
     * replace any newline characters `\` with `` ` `` (but not the ones within `bash -c "…"`)
 * **Git Bash**
     * replace `$pwd` with `/$(pwd)`
     * you may need to precede the command with `winpty` (at least not in the VS Code terminal)
-    * it is safer to use `bash` instead of `/bin/sh`
+    * it's safer to use `bash` instead of `/bin/sh`
     * if you're specifying a working directory, instead of `-w /app` use `-w "//app"`
 ---
-You can find more commands in the official [Docker CLI Reference](https://docs.docker.com/engine/reference/run/).
+You can find all the commands in the official [Docker CLI Reference](https://docs.docker.com/engine/reference/run/).
