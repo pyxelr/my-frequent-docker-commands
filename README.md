@@ -13,7 +13,7 @@
 ## 💾 **mount** volume to a container ([docs](https://docs.docker.com/storage/volumes/#start-a-container-with-a-volume))
 * `docker run --name xyz -v $pwd:/app -it abc bash` <--- mount current directory to a container and run it
     * you'll be able able to access your local folder in the /app folder of the Docker image
-    * ⚠ if you're using a terminal on Windows, make sure to replace `$pwd` (see more info in a [section below](https://github.com/pyxelr/my-frequent-docker-commands/edit/main/README.md#-running-docker-command-on-windows))
+    * ⚠ if you're using a terminal on Windows, make sure to replace `$pwd` (see more info in a [section below](#-running-docker-commands-on-windows))
 ## 🌐 **publish** a container (e.g. to use REST/curl)
 * `docker run -it --rm -p 8080:80 abc` <--- expose port 8080 (inside container) to port 80 (on the host), and automatically remove the container after exiting 
 * `docker run -d -p 8080:80 abc` <--- run in a detached mode (detach from the container and return to the terminal prompt)
