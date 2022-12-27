@@ -24,7 +24,7 @@
 
 1. `docker pull bash` <--- pull the latest [bash](https://hub.docker.com/_/bash) image from DockerHub
 1. `cd <project_directory>` <--- move into the chosen project directory
-1. `docker run --name abc -v ${PWD}:/app -it bash` <--- run a container named "bash" with the currently mounted directory
+1. `docker run --name xyz -v $(pwd):/app -it bash` <--- run a container named "xyz" with the currently mounted directory
 
 ## 🌐 **publish** a container (e.g. to use REST/curl)
 
