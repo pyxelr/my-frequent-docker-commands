@@ -22,9 +22,9 @@
 
 ## 🧑🏻‍💻 **develop** through a container
 
-1. `docker pull python:3.8` <--- pull the latest [bash](https://hub.docker.com/_/bash) image from DockerHub
+1. `docker pull python:3.8` <--- pull the latest [Python](https://hub.docker.com/_/python) image from DockerHub
 1. `cd <project_directory>` <--- move into the chosen project directory
-1. `docker run --name xyz -v $(pwd):/app -it python:3.8 bash` <--- run a container named "xyz" while mounting the current directory
+1. `docker run --name xyz -v $(pwd):/app -it python:3.8 bash` <--- run a container named "xyz" while mounting the current directory. **NOTE**: These steps were executed on a macOS device. Mounting files within a docker container on a Linux machine may modify the file owner. You could try mitigating it with the suggested workarounds [here](https://www.baeldung.com/linux/file-ownership-docker-container) or [here](https://stackoverflow.com/questions/26500270/understanding-user-file-ownership-in-docker-how-to-avoid-changing-permissions-o).
 
 ## 🌐 **publish** a container (e.g. to use REST/curl)
 
