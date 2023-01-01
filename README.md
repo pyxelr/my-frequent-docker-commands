@@ -20,7 +20,7 @@
   * you'll be able able to access your local folder in the /app folder of the Docker image
   * ⚠ if you're using a terminal on Windows, make sure to replace `$(pwd)` (see more info in a [section below](#-running-docker-commands-on-windows))
 
-## 🧑🏻‍💻 **develop** through a container
+## 💻 **develop** through a container
 
 1. `docker pull python:3.8` <--- pull the latest [Python](https://hub.docker.com/_/python) image from DockerHub
 1. `cd <project_directory>` <--- move into the chosen project directory
