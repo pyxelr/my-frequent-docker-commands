@@ -2,51 +2,51 @@
 
 ## 📜 **list** containers/images
 
-* `docker ps -a` <--- show even stopped **containers**
-* `docker images -a` <--- show even unused **images**
+* `docker ps -a` ← show even stopped **containers**
+* `docker images -a` ← show even unused **images**
 
 ## ✅ **build/run** an image
 
-* `docker build -t abc .` <--- build a container in a current directory
-  * `docker build -f docker/base/Dockerfile -t abc .` <--- build a Docker image from another path
-  * `docker build -f docker/def/Dockerfile --build-arg BASE_IMAGE=abc -t def` <--- pass a build argument
-* `docker run -it abc bash` <--- run Docker image in an interactive bash shell
-  * `docker run --name xyz -it abc bash` <--- give it a name
-* `docker exec -it xyz bash` <--- get into a running container (first make sure to `docker start xyz` if stopped)
+* `docker build -t abc .` ← build a container in a current directory
+  * `docker build -f docker/base/Dockerfile -t abc .` ← build a Docker image from another path
+  * `docker build -f docker/def/Dockerfile --build-arg BASE_IMAGE=abc -t def` ← pass a build argument
+* `docker run -it abc bash` ← run Docker image in an interactive bash shell
+  * `docker run --name xyz -it abc bash` ← give it a name
+* `docker exec -it xyz bash` ← get into a running container (first make sure to `docker start xyz` if stopped)
 
 ## 💾 **mount** volume to a container ([docs](https://docs.docker.com/storage/volumes/#start-a-container-with-a-volume))
 
-* `docker run --name xyz -v $(pwd):/app -it abc bash` <--- mount current directory to a container and run it
+* `docker run --name xyz -v $(pwd):/app -it abc bash` ← mount current directory to a container and run it
   * you'll be able able to access your local folder in the /app folder of the Docker image
   * ⚠ if you're using a terminal on Windows, make sure to replace `$(pwd)` (see more info in a [section below](#-running-docker-commands-on-windows))
 
 ## 💻 **develop** through a container
 
-1. `docker pull python:3.8` <--- pull the latest [Python](https://hub.docker.com/_/python) image from DockerHub
-1. `cd <project_directory>` <--- move into the chosen project directory
-1. `docker run --name xyz -v $(pwd):/app -it python:3.8 bash` <--- run a container named "xyz" while mounting the current directory. **NOTE**: These steps were executed on a macOS device. Mounting files within a docker container on a Linux machine may modify the file owner. You could try mitigating it with the suggested workarounds [here](https://www.baeldung.com/linux/file-ownership-docker-container) or [here](https://stackoverflow.com/questions/26500270/understanding-user-file-ownership-in-docker-how-to-avoid-changing-permissions-o).
+1. `docker pull python:3.8` ← pull the latest [Python](https://hub.docker.com/_/python) image from DockerHub
+1. `cd <project_directory>` ← move into the chosen project directory
+1. `docker run --name xyz -v $(pwd):/app -it python:3.8 bash` ← run a container named "xyz" while mounting the current directory. **NOTE**: These steps were executed on a macOS device. Mounting files within a docker container on a Linux machine may modify the file owner. You could try mitigating it with the suggested workarounds [here](https://www.baeldung.com/linux/file-ownership-docker-container) or [here](https://stackoverflow.com/questions/26500270/understanding-user-file-ownership-in-docker-how-to-avoid-changing-permissions-o).
 
 ## 🌐 **publish** a container (e.g. to use REST/curl)
 
-* `docker run -it --rm -p 8080:80 abc` <--- expose port 8080 (inside container) to port 80 (on the host), and automatically remove the container after exiting
-* `docker run -d -p 8080:80 abc` <--- run in a detached mode (detach from the container and return to the terminal prompt)
+* `docker run -it --rm -p 8080:80 abc` ← expose port 8080 (inside container) to port 80 (on the host), and automatically remove the container after exiting
+* `docker run -d -p 8080:80 abc` ← run in a detached mode (detach from the container and return to the terminal prompt)
 
 ## 🚶‍♂ **exit** a container
 
-* `[CTRL] + [D]` or `exit` <--- exit and stop the container
-* `[CTRL] + [P] + [Q]` <--- exit without stopping the container
+* `[CTRL] + [D]` or `exit` ← exit and stop the container
+* `[CTRL] + [P] + [Q]` ← exit without stopping the container
 
 ## ❌ delete containers/images
 
-* `docker system prune -a --volumes` <--- remove **all** (stopped containers, unused images, volumes)
-* `docker stop $(docker ps -a -q)` <--- stop all running **containers**
-  * `docker stop <container_id>` <--- stop a running container
-* `docker rm $(docker ps -a -q)` <--- remove all stopped **containers**
-  * `docker rm -f <id/name>` <--- remove a container forcefully
-* `docker rmi $(docker images -q)` <--- remove all **images**
-  * `docker rmi -f <image_id>` <--- remove image by its ID forcefully
-  * `docker image rm -f <name>` <--- remove image by its name
-* `docker volume rm $(docker volume ls -q)` <--- remove all **volumes**
+* `docker system prune -a --volumes` ← remove **all** (stopped containers, unused images, volumes)
+* `docker stop $(docker ps -a -q)` ← stop all running **containers**
+  * `docker stop <container_id>` ← stop a running container
+* `docker rm $(docker ps -a -q)` ← remove all stopped **containers**
+  * `docker rm -f <id/name>` ← remove a container forcefully
+* `docker rmi $(docker images -q)` ← remove all **images**
+  * `docker rmi -f <image_id>` ← remove image by its ID forcefully
+  * `docker image rm -f <name>` ← remove image by its name
+* `docker volume rm $(docker volume ls -q)` ← remove all **volumes**
 
 ---
 
